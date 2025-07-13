@@ -25,6 +25,14 @@ const TowerIconMap: Record<TowerType, React.FC<{className?: string}>> = {
     ELECTRIC: ElectricIcon,
 }
 
+const DamageTypeColors: Record<DamageType, string> = {
+    PHYSICAL: 'text-slate-300',
+    FIRE: 'text-orange-400',
+    COLD: 'text-sky-400',
+    ELECTRIC: 'text-violet-400',
+};
+
+
 const Game: React.FC<GameProps> = ({ onGameEnd, progression, stageIndex, t }) => {
   const { modifiedTowerStats, gameSettings, bossModifiers } = progression;
 
@@ -447,7 +455,7 @@ const Game: React.FC<GameProps> = ({ onGameEnd, progression, stageIndex, t }) =>
           <div className="text-xs mt-2 text-slate-400 flex justify-center space-x-4">
               <span>{t('armor')}: <span className="font-bold text-slate-200">{(currentBoss.armor! * 100).toFixed(0)}%</span></span>
               {Object.entries(currentBoss.resistances!).map(([type, value]) => (
-                  <span key={type}>{t(type.toLowerCase())}: <span className={`font-bold ${value > 0 ? 'text-green-400' : 'text-red-400'}`}>{(value * 100).toFixed(0)}%</span></span>
+                  <span key={type}>{t(type.toLowerCase() as any)}: <span className={`font-bold ${value > 0 ? 'text-green-400' : 'text-red-400'}`}>{(value * 100).toFixed(0)}%</span></span>
               ))}
           </div>
       </div>}

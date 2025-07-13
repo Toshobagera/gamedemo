@@ -3,6 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "homepage": "https://toshobagera.github.io/gamedemo",
+  "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
