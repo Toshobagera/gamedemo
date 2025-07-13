@@ -2,12 +2,13 @@
   "name": "geometric-tower-defense",
   "private": true,
   "version": "1.0.0",
-  "main": "main.js",
+  "homepage": "https://toshobagera.github.io/gamedemo",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "dist": "npm run build && electron-builder",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "react": "^18.2.0",
@@ -18,24 +19,8 @@
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "@vitejs/plugin-react": "^4.3.0",
-    "electron": "^28.3.3",
-    "electron-builder": "^24.13.3",
+    "gh-pages": "^6.1.1",
     "typescript": "^5.4.5",
     "vite": "^5.2.11"
-  },
-  "build": {
-    "appId": "com.example.geometric-td",
-    "productName": "Geometric Tower Defense",
-    "files": [
-      "dist/**/*",
-      "main.js",
-      "preload.js"
-    ],
-    "win": {
-      "target": "nsis"
-    },
-    "mac": {
-      "target": "dmg"
-    }
   }
 }
